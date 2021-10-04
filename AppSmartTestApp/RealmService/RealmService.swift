@@ -8,14 +8,20 @@
 import Foundation
 import RealmSwift
 
-class RealmService {
+final class RealmService {
+    
+    //MARK: - Properties
     
     private let realm = try! Realm()
     private lazy var charactersArray: Results<Character>? = realm.objects(Character.self)
     
     public static let shared = RealmService()
     
+    //MARK:- Lifecycle
+    
     private init() {}
+    
+    //MARK: - Helpers
     
     public func realmSaveCharacters(characters: [Character]?) {
         guard let characters = characters else { return }

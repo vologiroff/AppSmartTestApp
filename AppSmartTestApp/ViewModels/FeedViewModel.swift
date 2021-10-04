@@ -18,7 +18,7 @@ protocol FeedViewModelProtocol {
     func fetchFeedModelData()
 }
 
-class FeedViewModel: FeedViewModelProtocol {
+final class FeedViewModel: FeedViewModelProtocol {
     
     // MARK: - Properties
     
@@ -27,7 +27,8 @@ class FeedViewModel: FeedViewModelProtocol {
             guard let feedModel = feedModel else { return }
             //Saving data to Realm
             RealmService.shared.realmSaveCharacters(characters: feedModel.data?.results)
-            //Loading data from Realm
+            
+            //Loading/Refreshing data from Realm
             RealmService.shared.realmLoadCharacters(to: &charactersToDisplay, completion: onFeedModelUpdatedCallback)
         }
     }
@@ -63,6 +64,7 @@ class FeedViewModel: FeedViewModelProtocol {
     ///List of characters to display in ColllectionView
     private var charactersToDisplay: [Character] = []
     
+    ///CallBack to call after data fetching is done
     public var onFeedModelUpdatedCallback: (() -> ())?
     
     //MARK: - Lifecycle
@@ -75,7 +77,7 @@ class FeedViewModel: FeedViewModelProtocol {
         guard filteringWords == nil || filteringWords == "" else {
             fetchFilteredFeedModelData(for: filteringWords)
             return
-        } // In case there is still something to filter, otherwise fetch
+        } // In case there is still something to filter, otherwise fetch data
         
         filteredFeedModel = nil
         
@@ -92,7 +94,8 @@ class FeedViewModel: FeedViewModelProtocol {
                     
                     //Saving data to Realm
                     RealmService.shared.realmSaveCharacters(characters: results)
-                    //Loading data from Realm
+                    
+                    //Loading/Refreshing data from Realm
                     RealmService.shared.realmLoadCharacters(to: &self.charactersToDisplay, completion: self.onFeedModelUpdatedCallback)
                 }
                 
