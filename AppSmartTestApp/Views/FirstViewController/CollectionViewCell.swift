@@ -43,7 +43,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .darkGray
+        contentView.backgroundColor = .lightGray
         contentView.layer.cornerRadius = 12
         contentView.layer.masksToBounds = true
         
@@ -66,6 +66,8 @@ class CollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         sd_cancelCurrentImageLoad()
+        nameLabel.text = nil
+        descriptionLabel.text = nil
     }
     
     // MARK: - API

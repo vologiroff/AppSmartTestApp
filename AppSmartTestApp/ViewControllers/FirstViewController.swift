@@ -51,6 +51,9 @@ class FirstViewController: UICollectionViewController {
         collectionViewFlowLayout.footerReferenceSize = CGSize(width: collectionView.bounds.width, height: 50)
         
         collectionView.collectionViewLayout = collectionViewFlowLayout
+        if #available(iOS 13, *) {
+            collectionView.backgroundColor = .systemBackground
+        }
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         
         collectionView.addSubview(activityIndicator)
@@ -86,6 +89,8 @@ class FirstViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let feedViewModel = feedViewModel else { return }
+        
+        //Setting up pagination
         if indexPath.row == feedViewModel.numberOfRows() - 1 {
             activityIndicator.start()
             feedViewModel.fetchFeedModelData()

@@ -69,7 +69,10 @@ final class FeedViewModel: FeedViewModelProtocol {
     
     //MARK: - Lifecycle
     
-    public init() {}
+    public init() {
+        //Loading/Refreshing data from Realm
+        RealmService.shared.realmLoadCharacters(to: &self.charactersToDisplay, completion: self.onFeedModelUpdatedCallback)
+    }
     
     //MARK: - API
     

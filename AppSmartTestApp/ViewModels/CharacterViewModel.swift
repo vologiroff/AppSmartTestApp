@@ -29,7 +29,7 @@ struct CharacterViewModel {
     } //The name of the character.,
     
     public var description: String? {
-        return characterModel?.description
+        return characterModel?.descriptionKey
     }// A short bio or description of the character.,
     
     public var thumbnail: URL? {

@@ -23,7 +23,7 @@ class CharacterDataContainer: Decodable {
 class Character: Object, Decodable {
     @objc dynamic var id: Int = 0 // The unique ID of the character resource.,
     @objc dynamic var name: String? //The name of the character.,
-    @objc dynamic var Description: String? // A short bio or description of the character.,
+    @objc dynamic var descriptionKey: String? // A short bio or description of the character.,
     @objc dynamic var thumbnail: Image?  // The representative image for this character.,
     @objc dynamic var comics: ComicList? // A resource list containing comics which feature this character.,
     @objc dynamic var stories: StoryList? // A resource list of stories in which this character appears.,
@@ -32,6 +32,10 @@ class Character: Object, Decodable {
     
     override class func primaryKey() -> String {
         return "id"
+    }
+    
+    private enum CodingKeys : String, CodingKey {
+        case id, name, descriptionKey = "description", thumbnail, comics, stories, events, series
     }
 }
 
