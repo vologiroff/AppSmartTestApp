@@ -51,10 +51,13 @@ class FirstViewController: UICollectionViewController {
         collectionViewFlowLayout.footerReferenceSize = CGSize(width: collectionView.bounds.width, height: 50)
         
         collectionView.collectionViewLayout = collectionViewFlowLayout
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        
         if #available(iOS 13, *) {
             collectionView.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
         }
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         
         collectionView.addSubview(activityIndicator)
         activityIndicator.setDimensions(height: 25, width: 25)
