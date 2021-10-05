@@ -18,7 +18,7 @@ protocol FeedViewModelProtocol {
     func fetchFeedModelData()
 }
 
-final class FeedViewModel: FeedViewModelProtocol {
+class FeedViewModel: FeedViewModelProtocol {
     
     // MARK: - Properties
     
@@ -72,6 +72,7 @@ final class FeedViewModel: FeedViewModelProtocol {
     public init() {
         //Loading/Refreshing data from Realm
         RealmService.shared.realmLoadCharacters(to: &self.charactersToDisplay, completion: self.onFeedModelUpdatedCallback)
+        updatePageNumber()
     }
     
     //MARK: - API
@@ -136,5 +137,9 @@ final class FeedViewModel: FeedViewModelProtocol {
     
     public func getCharacterViewModelAt(indexPath: IndexPath) -> CharacterViewModel? {
         return filteredFeedModel == nil ? CharacterViewModel(character: charactersToDisplay[indexPath.row]) : CharacterViewModel(character: filteredFeedModel?.data?.results?[indexPath.row])
+    }
+    
+    private func updatePageNumber() {
+        currentPage = Int(floor(Double(charactersToDisplay.count / 12)))
     }
 }

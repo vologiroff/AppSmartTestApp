@@ -12,7 +12,7 @@ class FirstViewController: UICollectionViewController {
     // MARK: - Properties
     
     ///CollectionView characters viewModel
-    private var feedViewModel: FeedViewModelProtocol!
+    public var feedViewModel: FeedViewModelProtocol!
     
     ///CollectionView footer activity indicator
     private let activityIndicator = ActivityIndicatorView()

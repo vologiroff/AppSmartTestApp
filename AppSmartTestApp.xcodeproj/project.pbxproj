@@ -13,7 +13,6 @@
 		AEEEF3462709E56700E1BFF0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF3452709E56700E1BFF0 /* FirstViewController.swift */; };
 		AEEEF34B2709E56C00E1BFF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEEEF34A2709E56C00E1BFF0 /* Assets.xcassets */; };
 		AEEEF34E2709E56C00E1BFF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEEEF34C2709E56C00E1BFF0 /* LaunchScreen.storyboard */; };
-		AEEEF3592709E56C00E1BFF0 /* AppSmartTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF3582709E56C00E1BFF0 /* AppSmartTestAppTests.swift */; };
 		AEEEF3642709E56C00E1BFF0 /* AppSmartTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF3632709E56C00E1BFF0 /* AppSmartTestAppUITests.swift */; };
 		AEEEF3722709E66800E1BFF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF3712709E66800E1BFF0 /* Extensions.swift */; };
 		AEEEF3742709F3D200E1BFF0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF3732709F3D200E1BFF0 /* SecondViewController.swift */; };
@@ -25,6 +24,8 @@
 		AEEEF38C270A431200E1BFF0 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF38B270A431200E1BFF0 /* CharacterViewModel.swift */; };
 		AEEEF38E270A5E2A00E1BFF0 /* CollectionViewActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF38D270A5E2A00E1BFF0 /* CollectionViewActivityIndicator.swift */; };
 		AEEEF391270B22E200E1BFF0 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF390270B22E200E1BFF0 /* RealmService.swift */; };
+		AEEEF395270B458700E1BFF0 /* FeedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF394270B458700E1BFF0 /* FeedModelTests.swift */; };
+		AEEEF397270C583000E1BFF0 /* FeedModelTestsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEF396270C582F00E1BFF0 /* FeedModelTestsMocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,6 @@
 		AEEEF34D2709E56C00E1BFF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEEEF34F2709E56C00E1BFF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEEEF3542709E56C00E1BFF0 /* AppSmartTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSmartTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEEEF3582709E56C00E1BFF0 /* AppSmartTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSmartTestAppTests.swift; sourceTree = "<group>"; };
 		AEEEF35A2709E56C00E1BFF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEEEF35F2709E56C00E1BFF0 /* AppSmartTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSmartTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEEF3632709E56C00E1BFF0 /* AppSmartTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSmartTestAppUITests.swift; sourceTree = "<group>"; };
@@ -70,6 +70,8 @@
 		AEEEF38B270A431200E1BFF0 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		AEEEF38D270A5E2A00E1BFF0 /* CollectionViewActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewActivityIndicator.swift; sourceTree = "<group>"; };
 		AEEEF390270B22E200E1BFF0 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		AEEEF394270B458700E1BFF0 /* FeedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModelTests.swift; sourceTree = "<group>"; };
+		AEEEF396270C582F00E1BFF0 /* FeedModelTestsMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModelTestsMocks.swift; sourceTree = "<group>"; };
 		EC68F98B3BF7D06B0CF44EF7 /* Pods-AppSmartTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSmartTestApp.debug.xcconfig"; path = "Target Support Files/Pods-AppSmartTestApp/Pods-AppSmartTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +161,8 @@
 		AEEEF3572709E56C00E1BFF0 /* AppSmartTestAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				AEEEF3582709E56C00E1BFF0 /* AppSmartTestAppTests.swift */,
+				AEEEF394270B458700E1BFF0 /* FeedModelTests.swift */,
+				AEEEF396270C582F00E1BFF0 /* FeedModelTestsMocks.swift */,
 				AEEEF35A2709E56C00E1BFF0 /* Info.plist */,
 			);
 			path = AppSmartTestAppTests;
@@ -460,7 +463,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEEEF3592709E56C00E1BFF0 /* AppSmartTestAppTests.swift in Sources */,
+				AEEEF395270B458700E1BFF0 /* FeedModelTests.swift in Sources */,
+				AEEEF397270C583000E1BFF0 /* FeedModelTestsMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +669,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6B69W56R4;
 				INFOPLIST_FILE = AppSmartTestAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,7 +691,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6B69W56R4;
 				INFOPLIST_FILE = AppSmartTestAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

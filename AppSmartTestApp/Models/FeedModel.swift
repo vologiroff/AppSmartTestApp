@@ -12,12 +12,12 @@ struct FeedModel: Decodable {
     var data: CharacterDataContainer?
 }
 
-class CharacterDataContainer: Decodable {
-    let offset: Int? // The requested offset (number of skipped results) of the call.,
-    let limit: Int? // The requested result limit.,
-    let total: Int? //The total number of resources available given the current filter set.,
-    let count: Int? // The total number of results returned by this call.,
-    var results: [Character]? // The list of characters returned by the call.
+class CharacterDataContainer: Object, Decodable {
+    @objc dynamic var offset: Int = 0 // The requested offset (number of skipped results) of the call.,
+    @objc dynamic var limit: Int = 0 // The requested result limit.,
+    @objc dynamic var total: Int = 0 //The total number of resources available given the current filter set.,
+    @objc dynamic var count: Int = 0 // The total number of results returned by this call.,
+    dynamic var results: [Character]? // The list of characters returned by the call.
 }
 
 class Character: Object, Decodable {

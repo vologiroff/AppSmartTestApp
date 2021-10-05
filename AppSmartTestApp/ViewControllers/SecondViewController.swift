@@ -14,6 +14,13 @@ class SecondViewController: UITableViewController {
     ///Characters viewModel
     public var characterViewModel: CharacterViewModel!
     
+    private enum Section: Int {
+        case Comics
+        case Stories
+        case Events
+        case Series
+    }
+    
     private let characterAvatarImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -46,50 +53,47 @@ class SecondViewController: UITableViewController {
         characterAvatarImageView.sd_setImage(with: characterViewModel.thumbnail)
     }
     
+    //MARK: - UITableViewDataSource
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = Section(rawValue: section) else { fatalError() }
         switch section {
-        case 0: return characterViewModel.comics?.items.count ?? 0
-        case 1: return characterViewModel.stories?.items.count ?? 0
-        case 2: return characterViewModel.events?.items.count ?? 0
-        case 3: return characterViewModel.series?.items.count ?? 0
-        default: return 0
+        case .Comics:  return characterViewModel.comics?.items.count ?? 0
+        case .Stories: return characterViewModel.stories?.items.count ?? 0
+        case .Events:  return characterViewModel.events?.items.count ?? 0
+        case .Series:  return characterViewModel.series?.items.count ?? 0
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = Section(rawValue: indexPath.section) else { fatalError() }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         
-        switch indexPath.section {
-        case 0:
+        switch section {
+        case .Comics:
             cell.textLabel?.text = characterViewModel.comics?.items[indexPath.row].name
-        case 1:
+        case .Stories:
             cell.textLabel?.text = characterViewModel.stories?.items[indexPath.row].name
-        case 2:
+        case .Events:
             cell.textLabel?.text = characterViewModel.events?.items[indexPath.row].name
-        case 3:
+        case .Series:
             cell.textLabel?.text = characterViewModel.series?.items[indexPath.row].name
-        default:
-            fatalError("No such index in UITableView")
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let section = Section(rawValue: section) else { fatalError() }
         switch section {
-        case 0:
-            return "Comics"
-        case 1:
-            return "Stories"
-        case 2:
-            return "Events"
-        case 3:
-            return "Series"
-        default:
-            fatalError("No such index in UITableView")
+        case .Comics:  return "Comics"
+        case .Stories: return "Stories"
+        case .Events:  return "Events"
+        case .Series:  return "Series"
         }
     }
 }
