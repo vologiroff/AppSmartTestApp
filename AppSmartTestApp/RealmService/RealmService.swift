@@ -23,6 +23,7 @@ final class RealmService {
     
     //MARK: - Helpers
     
+    ///Save Marvel Character to database
     public func realmSaveCharacters(characters: [Character]?) {
         guard let characters = characters else { return }
         do {
@@ -36,6 +37,7 @@ final class RealmService {
         }
     }
 
+    ///Load Marvel Characters from database to a certain array by reference
     public func realmLoadCharacters(to charactersToDisplay: inout [Character], completion: (()->())?) {
         guard let charactersArray = charactersArray else { return }
         

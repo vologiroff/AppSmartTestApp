@@ -82,7 +82,7 @@ class FeedModelTests: XCTestCase {
     }
     
     func testCellForRowAtIndexPathDequeuesCellFromCollectionView() {
-        let mockCollectionView = MockCollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 500), collectionViewLayout: UICollectionViewLayout())
+        let mockCollectionView = MockCollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewLayout())
         mockCollectionView.dataSource = sut
         mockCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         

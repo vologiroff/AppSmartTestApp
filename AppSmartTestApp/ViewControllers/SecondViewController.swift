@@ -14,13 +14,15 @@ class SecondViewController: UITableViewController {
     ///Characters viewModel
     public var characterViewModel: CharacterViewModel!
     
-    private enum Section: Int {
+    ///CollectionView sections
+    private enum Section: Int, CaseIterable {
         case Comics
         case Stories
         case Events
         case Series
     }
     
+    //////Marvel character avatar to display in the top right corner
     private let characterAvatarImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -56,7 +58,7 @@ class SecondViewController: UITableViewController {
     //MARK: - UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        Section.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

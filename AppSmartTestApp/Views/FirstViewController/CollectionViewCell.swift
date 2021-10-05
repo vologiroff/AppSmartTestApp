@@ -12,6 +12,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    ///Marvel character avatar
     private let avatarImage: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -20,6 +21,7 @@ class CollectionViewCell: UICollectionViewCell {
         return iv
     }()
     
+    ///Marvel character name
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Character name"
@@ -30,6 +32,7 @@ class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    ///Marvel character description
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Character description"

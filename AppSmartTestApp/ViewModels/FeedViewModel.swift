@@ -40,8 +40,7 @@ class FeedViewModel: FeedViewModelProtocol {
         }
     }
     
-    private var currentPage: Int = 0
-    
+    ///Words/Characters/Symbols to filter by
     public var filteringWords: String? {
         didSet {
             //Cleaning up all the properties
@@ -61,6 +60,9 @@ class FeedViewModel: FeedViewModelProtocol {
         }
     }
     
+    ///Current page for loading data
+    private var currentPage: Int = 0
+    
     ///List of characters to display in ColllectionView
     private var charactersToDisplay: [Character] = []
     
@@ -78,10 +80,12 @@ class FeedViewModel: FeedViewModelProtocol {
     //MARK: - API
     
     public func fetchFeedModelData() {
+        
+        // In case there is still something to filter, otherwise fetch data
         guard filteringWords == nil || filteringWords == "" else {
             fetchFilteredFeedModelData(for: filteringWords)
             return
-        } // In case there is still something to filter, otherwise fetch data
+        }
         
         filteredFeedModel = nil
         
